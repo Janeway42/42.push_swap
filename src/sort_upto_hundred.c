@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 13:37:06 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/30 13:48:58 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/30 14:10:37 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void reorganize_and_insert(t_data *data, t_stack *temp)
 		write_pb(&data->a, &data->b);
 		last = data->b;
 		while (last->next != NULL)
-		last = last->next;
+			last = last->next;
 		while (last->val > data->b->val)
 			write_rrb(&data->b);
 	}
