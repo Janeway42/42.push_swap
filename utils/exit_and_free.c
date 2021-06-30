@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/21 18:41:38 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/29 19:48:58 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error_exit()
 	exit(1);
 }
 
-void error_int_max(t_data *data)
+void error_free(t_data *data)
 {
 	ft_putstr_fd("Error B\n", 2);
 	free(data);

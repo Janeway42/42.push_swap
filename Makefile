@@ -6,7 +6,7 @@
 #    By: janeway <janeway@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/06/20 17:01:17 by janeway       #+#    #+#                  #
-#    Updated: 2021/06/21 18:33:27 by janeway       ########   odam.nl          #
+#    Updated: 2021/06/29 19:54:20 by janeway       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC			=	push_swap.c\
 				set_up_data.c\
 				sort_upto_five.c\
 				presort.c\
-				sort_upto_hundred.c
+				sort_upto_hundred.c\
+				sort_upto_morehundred.c
 SRC_PATH	=	src/
 SRC_OBJ		=	$(SRC:%.c=$(SRC_PATH)%.o)
 

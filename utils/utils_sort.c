@@ -6,20 +6,23 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 17:39:44 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/24 10:55:18 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/30 10:53:55 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void move_elem(t_data *data, t_stack **x, int number)
+void move_elem(t_stack **x, int number)
 {
 	int pos;
+	int size;
+
+	size = iterate(*x);
 
 	pos = find_position(*x, number);
 	if (pos == 1)
 		return ;
-	if (pos <= data->half)
+	if (pos <= size / 2)
 	{
 		while ( pos != 1)
 		{
@@ -27,7 +30,7 @@ void move_elem(t_data *data, t_stack **x, int number)
 			pos--;
 		}
 	}
-	if (pos > data->half)
+	if (pos > size / 2)
 	{
 		while (pos != iterate(*x) + 1)
 		{
@@ -84,12 +87,16 @@ int find_position(t_stack *x, int number)
 	return (location);
 }
 
-void check_digit(char *str)
+int check_sorted_reversed(t_stack *x)
 {
-	if (*str == '-')
-		str++;
-	if (ft_isdigit(*str) == 1)
-		str++;
-	else
-		error_exit();
+	t_stack	*temp;
+
+	temp = x;
+	while (temp->next != NULL)
+	{
+		if (temp->val < temp->next->val)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
 }

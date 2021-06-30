@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 17:15:03 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/21 13:31:49 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/30 10:50:09 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void sort_three(t_stack **x)
 {
-	int top; 
-	int middle;
-	int botom;
+	int	top;
+	int	middle;
+	int	botom;
 
 	top = (*x)->val;
 	middle = ((*x)->next)->val;
@@ -41,10 +41,10 @@ void sort_three(t_stack **x)
 
 void sort_four(t_data *data)
 {
-	int min;
+	int	min;
 
 	min = find_min(data->a);
-	move_elem(data, &data->a, min);
+	move_elem(&data->a, min);
 	write_pb(&data->a, &data->b);
 
 	if (check_sorted(data->a) == 1)
@@ -54,14 +54,14 @@ void sort_four(t_data *data)
 
 void sort_five(t_data *data)
 {
-	int min; 
+	int	min;
 
 	min = find_min(data->a);
-	move_elem(data, &data->a, min);
+	move_elem(&data->a, min);
 	write_pb(&data->a, &data->b);
 
 	min = find_min(data->a);
-	move_elem(data, &data->a, min);
+	move_elem(&data->a, min);
 	write_pb(&data->a, &data->b);
 
 	if (check_sorted(data->a) == 1)
@@ -73,11 +73,6 @@ void sort_five(t_data *data)
 
 void sort_upto_five(t_data *data, int size)
 {
-	if (size % 2 == 0)
-		data->half = size / 2;
-	else 
-		data->half = size / 2 + 1;
-
 	if (size == 1)
 		return ;
 	else if (size == 2)
@@ -87,5 +82,5 @@ void sort_upto_five(t_data *data, int size)
 	else if (size == 4)
 		sort_four(data);
 	else if (size == 5)
-		sort_five(data); 
+		sort_five(data);
 }

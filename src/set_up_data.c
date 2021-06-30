@@ -6,16 +6,26 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 16:05:56 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/24 10:54:24 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/30 13:47:32 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void check_digit(t_data *data, char *str)
+{
+	if (*str == '-')
+		str++;
+	if (ft_isdigit(*str) == 1)
+		str++;
+	else
+		error_free(data);
+}
+
 int check_double(t_stack *x)
 {
-	t_stack *compared;
-	t_stack *temp;
+	t_stack	*compared;
+	t_stack	*temp;
 	
 	compared = x;
 	while (compared != NULL)
@@ -35,12 +45,12 @@ int check_double(t_stack *x)
 
 int check_sorted(t_stack *x)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = x;
 	while (temp->next != NULL)
 	{
-		if (temp->val > (temp->next)->val)
+		if (temp->val > temp->next->val)
 			return (1);
 		temp = temp->next;
 	}
@@ -57,19 +67,14 @@ static void fill_a(t_data *data)
 	while (*(data->argv))
 	{
 		str = *(data->argv);
-		check_digit(str);
+		check_digit(data, str);
 		num = ft_atoi(str, data);
 		if (data->int_max == 1)
-			error_int_max(data);
+			error_free(data);
 		new = create_new_elem(num);
-//		printf("%d\n", new->val);
 		if (!new)
-		{
-			// free data? free stack? free element? 
-			exit (1);
-		}			
+			error_free(data);
 		add_at_the_end(&data->a, new);
-//		print_stack(data->a);
 		data->argv++;
 	}
 }
@@ -82,7 +87,8 @@ static t_data *set_struct(t_data *data, char **argv)
 	data->argv = argv;
 	data->int_max = 0;
 	data->int_max = 0;
-	data->half = 0;
+	data->min = 0;
+	data->max = 0;
 	data->sort = 1;
 	return (data);
 }
@@ -92,10 +98,6 @@ t_data *set_data(t_data *data, char **argv)
 	data = set_struct(data, argv);
 	fill_a(data);
 	if (check_sorted(data->a) == 0 || check_double(data->a) == 1)
-		{
-			free(data); // data - stack 
-//			printf("Already sorted\n");  // erase
-			exit(1);
-		}
+		error_free(data);
 	return (data);
 }

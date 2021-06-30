@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/21 18:36:29 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/30 10:54:16 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_data
 	struct	s_stack *b;
 	char	**argv;
 	int		int_max;
+	int		min;
+	int		max;
 	int		half;
 	int		sort;
 }				t_data;
@@ -40,8 +42,9 @@ typedef struct s_data
 */
 
 t_data	*set_data(t_data *data, char **argv);
-void	check_digit(char *str);
+void	check_digit(t_data *data, char *str);
 int		check_sorted(t_stack *x);
+int		check_sorted_reversed(t_stack *x);
 int		check_double(t_stack *x);
 
 
@@ -49,10 +52,11 @@ int		check_double(t_stack *x);
 ** sorting
 */
 
-void	move_elem(t_data *data, t_stack **x, int number);
+void	move_elem(t_stack **x, int number);
 void	move_elem_return_b(t_data *data, t_stack **x, int number);
 void	sort_upto_five(t_data *data, int size);
 void	sort_upto_hundred(t_data *data, int size);
+void	sort_upto_morehundred(t_data *data, int size);
 
 
 /*
@@ -96,13 +100,13 @@ int		find_max(t_stack *x);
 */
 
 void	error_exit();
-void	error_int_max(t_data *data);
+void	error_free(t_data *data);
 
 /*
 ** presort
 */
 
-void	presort_stack(t_data *data);
+void	presort_stack(t_data *data, int size);
 
 /*
 ** ERASE
