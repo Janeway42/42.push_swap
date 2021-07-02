@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:23:32 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/30 13:56:37 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/02 18:52:25 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void push_swap(t_data *data)
 	int	size;
 
 	size = iterate(data->a);
-	if (size < 6)
+	if (size <= 5)
 		sort_upto_five(data, size);
-	if (size > 5)
+	else
 	{
+		presort_stack(data, size);
 		if (size <= 200)
 		{
-			presort_stack(data, size);
 			sort_upto_hundred(data, size);
 		}
 		else
@@ -48,7 +48,6 @@ int main(int argc, char **argv)
 //	print_stack (data->b);
 //	if (check_sorted(data->a) == 1)
 //		printf("not sorted\n");
-
 	free (data);
 	return (0);
 }

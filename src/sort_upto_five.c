@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 17:15:03 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/30 10:50:09 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/02 15:27:21 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void sort_four(t_data *data)
 	int	min;
 
 	min = find_min(data->a);
-	move_elem(&data->a, min);
+	move_elem_a(&data->a, min);
 	write_pb(&data->a, &data->b);
 
 	if (check_sorted(data->a) == 1)
@@ -57,11 +57,11 @@ void sort_five(t_data *data)
 	int	min;
 
 	min = find_min(data->a);
-	move_elem(&data->a, min);
+	move_elem_a(&data->a, min);
 	write_pb(&data->a, &data->b);
 
 	min = find_min(data->a);
-	move_elem(&data->a, min);
+	move_elem_a(&data->a, min);
 	write_pb(&data->a, &data->b);
 
 	if (check_sorted(data->a) == 1)

@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/30 10:54:16 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/02 16:58:33 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int		check_double(t_stack *x);
 ** sorting
 */
 
-void	move_elem(t_stack **x, int number);
+void	move_elem_a(t_stack **x, int number);
+void	move_elem_b(t_stack **x, int number);
 void	move_elem_return_b(t_data *data, t_stack **x, int number);
 void	sort_upto_five(t_data *data, int size);
 void	sort_upto_hundred(t_data *data, int size);
@@ -101,6 +102,7 @@ int		find_max(t_stack *x);
 
 void	error_exit();
 void	error_free(t_data *data);
+void	free_exit(t_data *data);
 
 /*
 ** presort

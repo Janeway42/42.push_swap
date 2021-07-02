@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 16:05:56 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/30 13:47:32 by janeway       ########   odam.nl         */
+/*   Updated: 2021/06/30 14:36:00 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,9 @@ t_data *set_data(t_data *data, char **argv)
 {
 	data = set_struct(data, argv);
 	fill_a(data);
-	if (check_sorted(data->a) == 0 || check_double(data->a) == 1)
+	if (check_sorted(data->a) == 0)
+		free_exit(data);
+	if (check_double(data->a) == 1)
 		error_free(data);
 	return (data);
 }
