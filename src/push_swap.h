@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/02 16:58:33 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/04 15:24:23 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "../libft/libft.h"
+#include "../get_next_line/get_next_line.h"
 #include <unistd.h>
 #include <stdio.h>
 
@@ -35,6 +36,11 @@ typedef struct s_data
 	int		max;
 	int		half;
 	int		sort;
+
+	int		size;
+	int		block;
+	int		nr_blocks;
+	int		remainder;
 }				t_data;
 
 /*
@@ -42,6 +48,7 @@ typedef struct s_data
 */
 
 t_data	*set_data(t_data *data, char **argv);
+void	fill_a(t_data *data);
 void	check_digit(t_data *data, char *str);
 int		check_sorted(t_stack *x);
 int		check_sorted_reversed(t_stack *x);
@@ -55,10 +62,10 @@ int		check_double(t_stack *x);
 void	move_elem_a(t_stack **x, int number);
 void	move_elem_b(t_stack **x, int number);
 void	move_elem_return_b(t_data *data, t_stack **x, int number);
-void	sort_upto_five(t_data *data, int size);
-void	sort_upto_hundred(t_data *data, int size);
-void	sort_upto_morehundred(t_data *data, int size);
-
+void	sort_upto_five(t_data *data);
+void	sort_more_than_five(t_data *data);
+void	b_larger_than_last(t_data *data, t_stack *temp, t_stack *last);
+void	last_larger_than_b(t_data *data, t_stack *temp, t_stack *last);
 
 /*
 ** moves
@@ -114,7 +121,7 @@ void	presort_stack(t_data *data, int size);
 ** ERASE
 */
 
-void print_stack (t_stack *x);
+void	print_stack (t_stack *x);
 
 
 #endif

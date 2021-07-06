@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   exit_and_free.c                                    :+:    :+:            */
+/*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/03 14:33:06 by janeway       ########   odam.nl         */
+/*   Created: 2021/07/04 14:27:42 by janeway       #+#    #+#                 */
+/*   Updated: 2021/07/04 15:02:22 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/push_swap.h"
+#include "libft.h"
 
-void	error_exit()
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	unsigned int i;
+
+	if (s1 == s2)
+		return (0);
+	while (s1[i] && s2[i] && s1[i] == s2[1])
+		i++;
+	return ((unsigned char) s1[i] - (unsigned char)s2[i]);
 }
 
-void	error_free(t_data *data)
-{
-	ft_putstr_fd("Error\n", 2);
-	free(data);
-	exit(1);
-}
-
-void	free_exit(t_data *data)
-{
-	free(data);
-	exit(1);
-}

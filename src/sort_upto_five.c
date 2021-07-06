@@ -6,13 +6,13 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 17:15:03 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/02 15:27:21 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/03 15:25:18 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(t_stack **x)
+static void	sort_three(t_stack **x)
 {
 	int	top;
 	int	middle;
@@ -21,25 +21,25 @@ void sort_three(t_stack **x)
 	top = (*x)->val;
 	middle = ((*x)->next)->val;
 	botom = (((*x)->next)->next)->val;
-	if (middle < botom && middle  < top && top < botom)
+	if (middle < botom && middle < top && top < botom)
 		write_sa(x);
-	if (middle > botom && middle  < top && top > botom)
+	else if (middle > botom && middle < top && top > botom)
 	{
 		write_sa(x);
 		write_rra(x);
 	}
-	if (middle < botom && middle  < top && top > botom)
+	else if (middle < botom && middle < top && top > botom)
 		write_ra(x);
-	if (middle > botom && middle  > top && top < botom)
+	else if (middle > botom && middle > top && top < botom)
 	{
 		write_sa(x);
 		write_ra(x);
 	}
-	if (middle > botom && middle  > top && top > botom)
+	else if (middle > botom && middle > top && top > botom)
 		write_rra(x);
 }
 
-void sort_four(t_data *data)
+static void	sort_four(t_data *data)
 {
 	int	min;
 
@@ -52,7 +52,7 @@ void sort_four(t_data *data)
 	write_pa(&data->a, &data->b);
 }
 
-void sort_five(t_data *data)
+static void sort_five(t_data *data)
 {
 	int	min;
 
@@ -71,16 +71,16 @@ void sort_five(t_data *data)
 }
 
 
-void sort_upto_five(t_data *data, int size)
+void sort_upto_five(t_data *data)
 {
-	if (size == 1)
+	if (data->size == 1)
 		return ;
-	else if (size == 2)
+	else if (data->size == 2)
 		write_sa(&data->a);
-	else if ( size == 3)
+	else if (data->size == 3)
 		sort_three(&data->a);
-	else if (size == 4)
+	else if (data->size == 4)
 		sort_four(data);
-	else if (size == 5)
+	else if (data->size == 5)
 		sort_five(data);
 }

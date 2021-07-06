@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   exit_and_free.c                                    :+:    :+:            */
+/*   ft_strlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/03 14:33:06 by janeway       ########   odam.nl         */
+/*   Created: 2021/07/04 12:39:33 by janeway       #+#    #+#                 */
+/*   Updated: 2021/07/04 12:40:19 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/push_swap.h"
+#include "libft.h"
 
-void	error_exit()
+size_t	ft_strlen(const char *str)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
-}
+	int i;
 
-void	error_free(t_data *data)
-{
-	ft_putstr_fd("Error\n", 2);
-	free(data);
-	exit(1);
-}
-
-void	free_exit(t_data *data)
-{
-	free(data);
-	exit(1);
+	i = 0;
+	while (str && str[i] != '\0')
+		i++;
+	return (i);
 }

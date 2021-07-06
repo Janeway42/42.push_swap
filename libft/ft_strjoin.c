@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   exit_and_free.c                                    :+:    :+:            */
+/*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/03 14:33:06 by janeway       ########   odam.nl         */
+/*   Created: 2021/07/04 13:53:49 by janeway       #+#    #+#                 */
+/*   Updated: 2021/07/04 13:54:34 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/push_swap.h"
+#include "libft.h"
 
-void	error_exit()
+char	*ft_strjoin(char *s1, char *s2)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
-}
+	char	*result;
+	size_t	i;
+	size_t	j;
 
-void	error_free(t_data *data)
-{
-	ft_putstr_fd("Error\n", 2);
-	free(data);
-	exit(1);
-}
-
-void	free_exit(t_data *data)
-{
-	free(data);
-	exit(1);
+	result = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!result)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		result[i + j] = s2[j];
+		j++;
+	}
+	result[i + j] = '\0';
+	free(s1);
+	return (result);
 }

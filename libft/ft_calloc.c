@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   exit_and_free.c                                    :+:    :+:            */
+/*   ft_calloc.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/03 14:33:06 by janeway       ########   odam.nl         */
+/*   Created: 2021/07/03 15:18:23 by janeway       #+#    #+#                 */
+/*   Updated: 2021/07/03 15:18:27 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/push_swap.h"
+#include "libft.h"
 
-void	error_exit()
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
-}
+	char	*result;
 
-void	error_free(t_data *data)
-{
-	ft_putstr_fd("Error\n", 2);
-	free(data);
-	exit(1);
-}
-
-void	free_exit(t_data *data)
-{
-	free(data);
-	exit(1);
+	if (nitems == 0 || size == 0)
+	{
+		nitems = 1;
+		size = 1;
+	}
+	result = malloc(nitems * size);
+	if (!result)
+		return (NULL);
+	ft_bzero(result, nitems * size);
+	return (result);
 }

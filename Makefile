@@ -6,24 +6,27 @@
 #    By: janeway <janeway@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/06/20 17:01:17 by janeway       #+#    #+#                  #
-#    Updated: 2021/06/29 19:54:20 by janeway       ########   odam.nl          #
+#    Updated: 2021/07/06 14:01:11 by janeway       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	push_swap
-H_FILES		=	src/push_swap.h
-CFLAGS		=	-Wall -Werror -Wextra
+PUSH		=	push_swap
+CHECKER		=	checker
+H_FILES		=	src/push_swap.h\
+				libft
+CFLAGS		=	-Wall -Werror -Wextra -g
 
 SRC			=	push_swap.c\
-				set_up_data.c\
 				sort_upto_five.c\
 				presort.c\
-				sort_upto_hundred.c\
-				sort_upto_morehundred.c
+				sort_more_than_five.c\
+				sort_more_than_five_utils.c
 SRC_PATH	=	src/
 SRC_OBJ		=	$(SRC:%.c=$(SRC_PATH)%.o)
 
-UTILS		=	atoi_modified.c\
+UTILS		=	set_up_data.c\
+				check_data.c\
+				atoi_modified.c\
 				utils_lists.c\
 				utils_sort.c\
 				exit_and_free.c
@@ -37,27 +40,45 @@ MOVES		=	push.c\
 MOVES_PATH 	=	moves/
 MOVES_OBJ	=	$(MOVES:%.c=$(MOVES_PATH)%.o)
 
-LIBFT		=	ft_isdigit.c \
-				ft_putstr_fd.c
+LIBFT		=	ft_isdigit.c\
+				ft_putstr_fd.c\
+				ft_calloc.c\
+				ft_bzero.c\
+				ft_strjoin.c\
+				ft_strlen.c\
+				ft_strcmp.c
 LIBFT_PATH	=	libft/
 LIBFT_OBJ	=	$(LIBFT:%.c=$(LIBFT_PATH)%.o)
 
-OBJ_FILES	=	$(SRC_OBJ) $(UTILS_OBJ) $(MOVES_OBJ) $(LIBFT_OBJ)
+GNL			=	get_next_line.c\
+				get_next_line_utils.c
+GNL_PATH	=	get_next_line/
+GNL_OBJ		=	$(GNL:%.c=$(GNL_PATH)%.o)
 
-all: $(NAME)
+TESTER			=	checker.c
+TESTER_PATH		=	tester/
+TESTER_OBJ		=	$(TESTER:%.c=$(TESTER_PATH)%.o)
 
-$(NAME): $(OBJ_FILES)
-		$(CC) $(OBJ_FILES) -o $@
-		make clean
+PUSH_FILES		=	$(SRC_OBJ) $(UTILS_OBJ) $(MOVES_OBJ) $(LIBFT_OBJ)
+TESTER_FILES	=	$(TESTER_OBJ) $(UTILS_OBJ) $(MOVES_OBJ) $(LIBFT_OBJ) $(GNL_OBJ)
+
+all: $(PUSH) $(CHECKER)
+
+$(PUSH): $(PUSH_FILES)
+	$(CC) $(PUSH_FILES) -o $@
+	
+$(CHECKER): $(TESTER_FILES)
+	$(CC) $(TESTER_FILES) -o $@
+	make clean
 
 %.o: %.c $(HEADER_FILES)
-	$(CC) -c $(CFLAGS)  $< -o $@ -g
+	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	$(RM) $(OBJ_FILES)
+	$(RM) $(PUSH_FILES) $(TESTER_FILES)
 
 fclean: clean
-	$(RM) *.o $(NAME)
+	$(RM) *.o $(PUSH) $(CHECKER)
 
 re:
 	$(MAKE) fclean
