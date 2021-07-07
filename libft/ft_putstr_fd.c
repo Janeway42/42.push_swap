@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/20 18:18:00 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/20 18:20:21 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 16:56:08 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)

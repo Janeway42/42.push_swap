@@ -6,13 +6,13 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 16:05:56 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/04 15:43:13 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 16:48:37 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void fill_a(t_data *data)
+void	fill_a(t_data *data)
 {
 	t_stack	*new;
 	char	*str;
@@ -34,9 +34,8 @@ void fill_a(t_data *data)
 	}
 }
 
-static t_data *set_struct(t_data *data, char **argv)
+static t_data	*set_struct(t_data *data, char **argv)
 {
-
 	data->a = NULL;
 	data->b = NULL;
 	data->argv = argv;
@@ -52,7 +51,7 @@ static t_data *set_struct(t_data *data, char **argv)
 	return (data);
 }
 
-t_data *set_data(t_data *data, char **argv)
+t_data	*set_data(t_data *data, char **argv)
 {
 	data = set_struct(data, argv);
 	fill_a(data);

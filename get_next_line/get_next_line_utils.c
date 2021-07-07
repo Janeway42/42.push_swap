@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/04 14:00:18 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/04 14:00:43 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 16:54:05 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ char	*ft_line(const char *str, char c)
 	return (dest);
 }
 
-int		ft_strlength(const char *str, char c)
+int	ft_strlength(const char *str, char c)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

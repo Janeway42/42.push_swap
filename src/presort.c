@@ -6,30 +6,29 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 17:41:04 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/30 13:47:51 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/07 14:41:06 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int *copy_list(t_stack **a, int *array) 
+static int	*copy_list(t_stack **a, int *array)
 {
 	t_stack	*temp;
 	int		i;
 
-	i = 0;
 	temp = *a;
-	while (temp!= NULL)
+	i = 0;
+	while (temp != NULL)
 	{
 		array[i] = temp->val;
 		i++;
 		temp = temp->next;
 	}
-	array[i] = '\0';
 	return (array);
 }
 
-static int *sort_array(int *array, int size, t_data *data)
+static int	*sort_array(int *array, t_data *data)
 {
 	int	i;
 	int	temp;
@@ -38,9 +37,9 @@ static int *sort_array(int *array, int size, t_data *data)
 	{
 		data->sort = 0;
 		i = 0;
-		while (i < size)
+		while (i < data->size)
 		{
-			if (i != size - 1 && array[i] > array[i + 1])
+			if (i != data->size - 1 && array[i] > array[i + 1])
 			{
 				temp = array[i + 1];
 				array[i + 1] = array[i];
@@ -54,7 +53,7 @@ static int *sort_array(int *array, int size, t_data *data)
 	return (array);
 }
 
-static void add_index(int *array, t_data *data, int size)
+static void	add_index(int *array, t_data *data, int size)
 {
 	t_stack	*temp;
 	int		i;
@@ -73,16 +72,15 @@ static void add_index(int *array, t_data *data, int size)
 	}
 }
 
-void presort_stack(t_data *data, int size)
+void	presort_stack(t_data *data)
 {
 	int	*array;
 
-	array = malloc(sizeof(int) * size + 1);
+	array = calloc(sizeof(int), data->size + 1);
 	if (!array)
 		error_free(data);
-
 	array = copy_list(&data->a, array);
-	array = sort_array(array, size, data);
-	add_index(array, data, size);
+	array = sort_array(array, data);
+	add_index(array, data, data->size);
 	free(array);
 }

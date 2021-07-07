@@ -6,16 +6,16 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/20 16:43:54 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/02 11:40:28 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 16:44:08 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void reverse_rotate(t_stack **x)
+void	reverse_rotate(t_stack **x)
 {
-	t_stack *new_first;
-	t_stack *new_last;
+	t_stack	*new_first;
+	t_stack	*new_last;
 
 	new_first = (*x)->next;
 	if (iterate(*x) == 2)
@@ -41,36 +41,32 @@ void reverse_rotate(t_stack **x)
 	*x = new_first;
 }
 
-void write_rra(t_stack **a)
+void	reverse_rotate_both(t_stack **a, t_stack **b)
 {
-	if (iterate(*a) > 1)
-	{
-		reverse_rotate(a);
-		write (1, "rra\n", 4);
-//		print_stack(*a);
-	}
+	reverse_rotate(a);
+	reverse_rotate(b);
 }
 
-void write_rrb(t_stack **b)
-{
-	if (iterate(*b) > 1)
-	{
-		reverse_rotate(b);
-		write (1, "rrb\n", 4);
-//		print_stack(*b);
-	}
-}
-
-void write_rrr(t_stack **a, t_stack **b)
+void	write_rra(t_stack **a)
 {
 	if (iterate(*a) > 1)
 	{
 		reverse_rotate(a);
 		write (1, "rra\n", 4);
 	}
+}
+
+void	write_rrb(t_stack **b)
+{
 	if (iterate(*b) > 1)
 	{
 		reverse_rotate(b);
 		write (1, "rrb\n", 4);
 	}
+}
+
+void	write_rrr(t_stack **a, t_stack **b)
+{
+	if (iterate(*a) > 1 && iterate(*b) > 1)
+		rotate_both(a, b);
 }

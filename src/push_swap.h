@@ -6,41 +6,40 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/04 15:24:23 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/07 12:41:55 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../libft/libft.h"
-#include "../get_next_line/get_next_line.h"
-#include <unistd.h>
-#include <stdio.h>
+# include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
+# include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
-		struct s_stack *next;
-		int val;
-		int index;
-		struct s_stack *prev;
+	struct s_stack	*next;
+	int				val;
+	int				index;
+	struct s_stack	*prev;
 }				t_stack;
 
 typedef struct s_data
 {
-	struct	s_stack *a;
-	struct	s_stack *b;
-	char	**argv;
-	int		int_max;
-	int		min;
-	int		max;
-	int		half;
-	int		sort;
-
-	int		size;
-	int		block;
-	int		nr_blocks;
-	int		remainder;
+	struct s_stack	*a;
+	struct s_stack	*b;
+	char			**argv;
+	int				int_max;
+	int				min;
+	int				max;
+	int				half;
+	int				sort;
+	int				size;
+	int				block;
+	int				nr_blocks;
+	int				remainder;
 }				t_data;
 
 /*
@@ -53,7 +52,6 @@ void	check_digit(t_data *data, char *str);
 int		check_sorted(t_stack *x);
 int		check_sorted_reversed(t_stack *x);
 int		check_double(t_stack *x);
-
 
 /*
 ** sorting
@@ -68,13 +66,22 @@ void	b_larger_than_last(t_data *data, t_stack *temp, t_stack *last);
 void	last_larger_than_b(t_data *data, t_stack *temp, t_stack *last);
 
 /*
+** presort
+*/
+
+void	presort_stack(t_data *data);
+
+/*
 ** moves
 */
 
 void	swap(t_stack **x);
+void	swap_both(t_stack **a, t_stack **b);
 void	push(t_stack **dest, t_stack **src);
 void	rotate(t_stack **x);
+void	rotate_both(t_stack **a, t_stack **b);
 void	reverse_rotate(t_stack **x);
+void	reverse_rotate_both(t_stack **a, t_stack **b);
 
 void	write_sa(t_stack **a);
 void	write_sb(t_stack **b);
@@ -107,21 +114,8 @@ int		find_max(t_stack *x);
 ** free and error
 */
 
-void	error_exit();
+void	error_exit(void);
 void	error_free(t_data *data);
 void	free_exit(t_data *data);
-
-/*
-** presort
-*/
-
-void	presort_stack(t_data *data, int size);
-
-/*
-** ERASE
-*/
-
-void	print_stack (t_stack *x);
-
 
 #endif

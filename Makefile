@@ -6,7 +6,7 @@
 #    By: janeway <janeway@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/06/20 17:01:17 by janeway       #+#    #+#                  #
-#    Updated: 2021/07/06 14:01:11 by janeway       ########   odam.nl          #
+#    Updated: 2021/07/07 14:38:13 by janeway       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ PUSH		=	push_swap
 CHECKER		=	checker
 H_FILES		=	src/push_swap.h\
 				libft
-CFLAGS		=	-Wall -Werror -Wextra -g
+CFLAGS		=	-Wall -Werror -Wextra -g -fsanitize=address
 
 SRC			=	push_swap.c\
-				sort_upto_five.c\
 				presort.c\
+				sort_upto_five.c\
 				sort_more_than_five.c\
 				sort_more_than_five_utils.c
 SRC_PATH	=	src/
@@ -29,6 +29,7 @@ UTILS		=	set_up_data.c\
 				atoi_modified.c\
 				utils_lists.c\
 				utils_sort.c\
+				utils_sort2.c\
 				exit_and_free.c
 UTILS_PATH	=	utils/
 UTILS_OBJ	=	$(UTILS:%.c=$(UTILS_PATH)%.o)
@@ -65,10 +66,10 @@ TESTER_FILES	=	$(TESTER_OBJ) $(UTILS_OBJ) $(MOVES_OBJ) $(LIBFT_OBJ) $(GNL_OBJ)
 all: $(PUSH) $(CHECKER)
 
 $(PUSH): $(PUSH_FILES)
-	$(CC) $(PUSH_FILES) -o $@
+	$(CC) $(PUSH_FILES) $(CFLAGS) -o $@
 	
 $(CHECKER): $(TESTER_FILES)
-	$(CC) $(TESTER_FILES) -o $@
+	$(CC) $(TESTER_FILES) $(CFLAGS) -o $@
 	make clean
 
 %.o: %.c $(HEADER_FILES)

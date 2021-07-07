@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 11:50:32 by janeway       #+#    #+#                 */
-/*   Updated: 2021/06/20 17:08:05 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 16:47:30 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 static int	ft_compare(char i)
 {
 	if (i == ' '
-				|| i == '\n'
-				|| i == '\t'
-				|| i == '\v'
-				|| i == '\f'
-				|| i == '\r')
+		|| i == '\n'
+		|| i == '\t'
+		|| i == '\v'
+		|| i == '\f'
+		|| i == '\r')
 		return (1);
 	return (0);
 }
@@ -40,7 +40,7 @@ static int	atoi_overflow(unsigned long value, int sign, t_data *c)
 		return ((int)(value * sign));
 }
 
-int			ft_atoi(const char *nptr, t_data *c)
+int	ft_atoi(const char *nptr, t_data *c)
 {
 	int				i;
 	int				sign;

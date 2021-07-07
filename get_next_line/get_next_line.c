@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/04 13:56:53 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/06 15:01:21 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 16:54:57 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static int	has_line(char *str, char c)
 static int	create_line(char **line, char **keep, char *buff)
 {
 	char	*leftover;
+
 	if (!*keep)
 	{
 		*keep = malloc(sizeof(char) * 1);

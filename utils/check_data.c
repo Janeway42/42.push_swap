@@ -6,13 +6,13 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/03 15:38:27 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/04 15:43:25 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/06 17:48:21 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void check_digit(t_data *data, char *str)
+void	check_digit(t_data *data, char *str)
 {
 	if (*str == '-')
 		str++;
@@ -22,11 +22,11 @@ void check_digit(t_data *data, char *str)
 		error_free(data);
 }
 
-int check_double(t_stack *x)
+int	check_double(t_stack *x)
 {
 	t_stack	*compared;
 	t_stack	*temp;
-	
+
 	compared = x;
 	while (compared != NULL)
 	{
@@ -43,7 +43,7 @@ int check_double(t_stack *x)
 	return (0);
 }
 
-int check_sorted(t_stack *x)
+int	check_sorted(t_stack *x)
 {
 	t_stack	*temp;
 
@@ -51,6 +51,20 @@ int check_sorted(t_stack *x)
 	while (temp->next != NULL)
 	{
 		if (temp->val > temp->next->val)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+int	check_sorted_reversed(t_stack *x)
+{
+	t_stack	*temp;
+
+	temp = x;
+	while (temp->next != NULL)
+	{
+		if (temp->val < temp->next->val)
 			return (1);
 		temp = temp->next;
 	}
