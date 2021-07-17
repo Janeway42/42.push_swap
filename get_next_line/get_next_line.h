@@ -6,21 +6,15 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/04 13:58:20 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/04 13:59:44 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/07 20:07:20 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdio.h>
 # include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 # include <stdlib.h>
-# include <string.h>
-# include <limits.h>
 # include "../libft/libft.h"
 
 # ifndef BUFFER_SIZE

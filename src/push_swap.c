@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:23:32 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/07 12:41:26 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 14:10:51 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	find_block_and_remainder(t_data *data)
 
 void	push_swap(t_data *data)
 {
-	data->size = iterate(data->a);
 	if (data->size <= 5)
 		sort_upto_five(data);
 	else
@@ -39,13 +38,14 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	if (argc < 2)
-		error_exit();
+	if (argc < 1)
+		exit(1);
 	data = ft_calloc(1, sizeof(t_data));
 	if (!data)
 		error_exit();
 	data = set_data(data, argv);
+	check_data(data);
 	push_swap(data);
-	free_exit (data);
+	final_free(data);
 	return (0);
 }

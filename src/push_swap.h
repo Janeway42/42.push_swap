@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/07 12:41:55 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 17:35:20 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -47,11 +46,13 @@ typedef struct s_data
 */
 
 t_data	*set_data(t_data *data, char **argv);
+t_data	*set_struct(t_data *data, char **argv);
 void	fill_a(t_data *data);
 void	check_digit(t_data *data, char *str);
 int		check_sorted(t_stack *x);
 int		check_sorted_reversed(t_stack *x);
 int		check_double(t_stack *x);
+void	check_data(t_data *data);
 
 /*
 ** sorting
@@ -114,8 +115,10 @@ int		find_max(t_stack *x);
 ** free and error
 */
 
+void	free_stack(t_stack **a);
 void	error_exit(void);
 void	error_free(t_data *data);
 void	free_exit(t_data *data);
+void	final_free(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/07 12:24:32 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 17:35:06 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error_exit(void)
 	exit(1);
 }
 
-static void	free_stack(t_stack **a)
+void	free_stack(t_stack **a)
 {
 	t_stack	*temp;
 
@@ -44,5 +44,11 @@ void	free_exit(t_data *data)
 {
 	free_stack(&data->a);
 	free(data);
-	exit(1);
+	exit(0);
+}
+
+void	final_free(t_data *data)
+{
+	free_stack(&data->a);
+	free(data);
 }

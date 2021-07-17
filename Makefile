@@ -6,7 +6,7 @@
 #    By: janeway <janeway@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/06/20 17:01:17 by janeway       #+#    #+#                  #
-#    Updated: 2021/07/07 14:38:13 by janeway       ########   odam.nl          #
+#    Updated: 2021/07/17 14:50:45 by janeway       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,6 @@ $(PUSH): $(PUSH_FILES)
 	
 $(CHECKER): $(TESTER_FILES)
 	$(CC) $(TESTER_FILES) $(CFLAGS) -o $@
-	make clean
 
 %.o: %.c $(HEADER_FILES)
 	$(CC) -c $(CFLAGS) $< -o $@
