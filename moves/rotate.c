@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/20 13:55:02 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/06 16:45:01 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 19:52:09 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ void	rotate(t_stack **x)
 
 void	rotate_both(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
+	if (iterate(*a) > 1)
+		rotate(a);
+	if (iterate(*b) > 1)
+		rotate(b);
 }
 
 void	write_ra(t_stack **a)
