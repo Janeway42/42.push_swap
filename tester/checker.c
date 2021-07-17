@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/30 13:23:05 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 17:46:08 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 19:37:29 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	error_move(t_data *data, char *move)
 	ft_putstr_fd("KO\n", 1);
 	free(move);
 	free_stack(&data->a);
+	free_stack(&data->b);
 	free(data);
 	exit(1);
 }

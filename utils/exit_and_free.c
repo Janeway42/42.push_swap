@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 17:35:06 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 19:44:11 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	error_exit(void)
 	exit(1);
 }
 
-void	free_stack(t_stack **a)
+void	free_stack(t_stack **x)
 {
 	t_stack	*temp;
 
-	temp = *a;
-	while (*a != NULL)
+	temp = *x;
+	while (*x != NULL)
 	{
-		temp = *a;
-		*a = (*a)->next;
+		temp = *x;
+		*x = (*x)->next;
 		free(temp);
 		temp = NULL;
 	}
@@ -50,5 +50,6 @@ void	free_exit(t_data *data)
 void	final_free(t_data *data)
 {
 	free_stack(&data->a);
+	free_stack(&data->b);
 	free(data);
 }

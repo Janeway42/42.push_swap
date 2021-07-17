@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 17:35:20 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/17 19:38:59 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int		find_max(t_stack *x);
 ** free and error
 */
 
-void	free_stack(t_stack **a);
+void	free_stack(t_stack **x);
 void	error_exit(void);
 void	error_free(t_data *data);
 void	free_exit(t_data *data);
