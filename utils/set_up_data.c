@@ -6,11 +6,12 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 16:05:56 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 15:13:14 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 13:35:50 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
+#include <stdio.h>
 
 void	fill_a(t_data *data)
 {
@@ -24,11 +25,9 @@ void	fill_a(t_data *data)
 		str = *(data->argv);
 		check_digit(data, str);
 		num = ft_atoi(str, data);
-		if (data->int_max == 1)
-			error_free(data);
 		new = create_new_elem(num);
 		if (!new)
-			error_free(data);
+			error_free_exit(data);
 		add_at_the_end(&data->a, new);
 		data->argv++;
 	}
@@ -39,8 +38,6 @@ t_data	*set_struct(t_data *data, char **argv)
 	data->a = NULL;
 	data->b = NULL;
 	data->argv = argv;
-	data->int_max = 0;
-	data->int_max = 0;
 	data->min = 0;
 	data->max = 0;
 	data->sort = 1;
@@ -61,10 +58,8 @@ t_data	*set_data(t_data *data, char **argv)
 
 void	check_data(t_data *data)
 {
-	if (data->size == 0)
-		free_exit(data);
 	if (check_double(data->a) == 1)
-		error_free(data);
+		error_free_exit(data);
 	if (check_sorted(data->a) == 0)
 		free_exit(data);
 }

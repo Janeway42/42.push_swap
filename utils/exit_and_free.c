@@ -6,17 +6,11 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:46:43 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 19:44:11 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 11:14:22 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
-
-void	error_exit(void)
-{
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
-}
 
 void	free_stack(t_stack **x)
 {
@@ -32,7 +26,13 @@ void	free_stack(t_stack **x)
 	}
 }
 
-void	error_free(t_data *data)
+void	error_exit(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
+
+void	error_free_exit(t_data *data)
 {
 	ft_putstr_fd("Error\n", 2);
 	free_stack(&data->a);

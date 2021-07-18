@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 17:41:04 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/07 14:41:06 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 11:11:47 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	presort_stack(t_data *data)
 
 	array = calloc(sizeof(int), data->size + 1);
 	if (!array)
-		error_free(data);
+		error_free_exit(data);
 	array = copy_list(&data->a, array);
 	array = sort_array(array, data);
 	add_index(array, data, data->size);

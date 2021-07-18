@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/30 13:23:05 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 19:37:29 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 11:13:08 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	error_move(t_data *data, char *move)
 {
-	ft_putstr_fd("KO\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	free(move);
 	free_stack(&data->a);
 	free_stack(&data->b);
@@ -50,22 +50,30 @@ static void	check_move(t_data *data, char *move)
 		error_move(data, move);
 }
 
-static void	run_get_next_line(t_data *data)
+static void	run_verification(t_data *data)
 {
 	char	*move;
 
+	if (check_double(data->a) == 1)
+		error_free_exit(data);
 	while (get_next_line(STDIN_FILENO, &move))
 	{
 		check_move(data, move);
 		free(move);
 	}
 	free(move);
+	if (check_sorted(data->a) == 0 && data->b == NULL)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_data	*data;
 
+	if (argc < 1)
+		return (1);
 	if (argc == 1)
 		return (0);
 	data = ft_calloc(1, sizeof(t_data));
@@ -73,15 +81,7 @@ int	main(int argc, char **argv)
 		error_exit();
 	data = set_data(data, argv);
 	if (data->size > 1)
-	{
-		if (check_double(data->a) == 1)
-			error_free(data);
-		run_get_next_line(data);
-		if (check_sorted(data->a) == 0 && data->b == NULL)
-			ft_putstr_fd("OK\n", 1);
-		else
-			ft_putstr_fd("KO\n", 1);
-	}
+		run_verification(data);
 	else
 		ft_putstr_fd("OK\n", 1);
 	final_free(data);

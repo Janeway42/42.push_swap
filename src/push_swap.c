@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:23:32 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 14:10:51 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 13:14:56 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	main(int argc, char **argv)
 	t_data	*data;
 
 	if (argc < 1)
-		exit(1);
+		return (1);
+	if (argc == 1)
+		return (0);
 	data = ft_calloc(1, sizeof(t_data));
 	if (!data)
 		error_exit();

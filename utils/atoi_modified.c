@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/02 11:50:32 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 15:21:43 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 11:12:52 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ static int	ft_compare(char i)
 static int	atoi_overflow(unsigned int value, int sign, t_data *c)
 {
 	if (value > INT_MAX)
-	{
-		c->int_max = 1;
-		return (-1);
-	}
-	else
-		return ((int)(value * sign));
+		error_free_exit(c);
+	return ((int)(value * sign));
 }
 
 int	ft_atoi(const char *nptr, t_data *c)

@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/03 15:38:27 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/06 17:48:21 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 12:55:16 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	check_digit(t_data *data, char *str)
 {
-	if (*str == '-')
+	if ((*str == '-' || *str == '+') && ft_strlen(str) > 1)
 		str++;
-	if (ft_isdigit(*str) == 1)
-		str++;
-	else
-		error_free(data);
+	while (*str)
+	{
+		if (ft_isdigit(*str) == 1)
+			str++;
+		else
+			error_free_exit(data);
+	}
 }
 
 int	check_double(t_stack *x)

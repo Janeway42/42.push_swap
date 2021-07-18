@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 17:15:03 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/06 16:59:47 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 13:35:54 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ static void	sort_four(t_data *data)
 
 	min = find_min(data->a);
 	move_elem_a(&data->a, min);
-	write_pb(&data->a, &data->b);
 	if (check_sorted(data->a) == 1)
-		sort_three(&data->a);
-	write_pa(&data->a, &data->b);
+	{
+		write_pb(&data->a, &data->b);
+		if (check_sorted(data->a) == 1)
+			sort_three(&data->a);
+		write_pa(&data->a, &data->b);
+	}
 }
 
 static void	sort_five(t_data *data)
@@ -57,14 +60,20 @@ static void	sort_five(t_data *data)
 
 	min = find_min(data->a);
 	move_elem_a(&data->a, min);
-	write_pb(&data->a, &data->b);
-	min = find_min(data->a);
-	move_elem_a(&data->a, min);
-	write_pb(&data->a, &data->b);
 	if (check_sorted(data->a) == 1)
-		sort_three(&data->a);
-	write_pa(&data->a, &data->b);
-	write_pa(&data->a, &data->b);
+	{
+		write_pb(&data->a, &data->b);
+		min = find_min(data->a);
+		move_elem_a(&data->a, min);
+		if (check_sorted(data->a) == 1)
+		{
+			write_pb(&data->a, &data->b);
+			if (check_sorted(data->a) == 1)
+				sort_three(&data->a);
+			write_pa(&data->a, &data->b);
+		}
+		write_pa(&data->a, &data->b);
+	}
 }
 
 void	sort_upto_five(t_data *data)

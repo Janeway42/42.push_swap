@@ -6,7 +6,7 @@
 /*   By: janeway <janeway@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/19 15:58:16 by janeway       #+#    #+#                 */
-/*   Updated: 2021/07/17 19:38:59 by janeway       ########   odam.nl         */
+/*   Updated: 2021/07/18 11:10:57 by janeway       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_data
 	struct s_stack	*a;
 	struct s_stack	*b;
 	char			**argv;
-	int				int_max;
 	int				min;
 	int				max;
 	int				half;
@@ -117,7 +116,7 @@ int		find_max(t_stack *x);
 
 void	free_stack(t_stack **x);
 void	error_exit(void);
-void	error_free(t_data *data);
+void	error_free_exit(t_data *data);
 void	free_exit(t_data *data);
 void	final_free(t_data *data);
 
