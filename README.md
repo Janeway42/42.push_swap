@@ -8,7 +8,7 @@ Run:
 
 -------------------------------------------------------------------
 
-42 The Network Assignment:
+[42 The Network](https://www.42network.org/) Assignment:
 -----------
 Create an [algorithm](https://en.wikipedia.org/wiki/Algorithm) to sort data.
 
@@ -33,7 +33,8 @@ Do nothing if a is empty.
 - **rra** (reverse rotate a): Shift down all elements of stack a by 1. The last element becomes the first one.
 - **rrb** (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
 - **rrr** : **rra** and **rrb** at the same time.
-- 
+---
+- Allowed external functions: read, write, malloc, free, exit, [ft_printf](https://github.com/Janeway42/42.printf) 
 -------------------------------------------------------------------
 
 Code format: 
@@ -46,3 +47,5 @@ These include for example a maximum of 25 lines per function, at most 80 columns
 Usefull info:
 ------------
 [Linked Lists](https://www.youtube.com/watch?v=R9PTBwOzceo&list=PLBlnK6fEyqRj9lld8sWIUNwlKfdUoPd1Y&index=31)
+
+-------------------------------------------------------------------
