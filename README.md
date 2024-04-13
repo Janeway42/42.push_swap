@@ -1,8 +1,19 @@
-# **push_swap**
-An algorithm to sort data
+# **42.push_swap**
 
-Rules:
+
+Run:
 ----
+- make  *(compiles the program)*
+- ./push_swap input   *(where input is a random list of [integers](https://en.wikipedia.org/wiki/Integer))*
+
+-------------------------------------------------------------------
+
+42 The Network Assignment:
+-----------
+Create an [algorithm](https://en.wikipedia.org/wiki/Algorithm) to sort data.
+
+Requirements:
+-------------
 You have 2 stacks named **a** and **b**.
 
 At the beginning:
@@ -22,12 +33,16 @@ Do nothing if a is empty.
 - **rra** (reverse rotate a): Shift down all elements of stack a by 1. The last element becomes the first one.
 - **rrb** (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
 - **rrr** : **rra** and **rrb** at the same time.
+- 
+-------------------------------------------------------------------
 
-Run:
----
-- make
-- ./push_swap input   *(where input is a random list of integers)*
+Code format: 
+------------
+The code must be written in accordance to the 42 set of norms.  
+These include for example a maximum of 25 lines per function, at most 80 columns per line, comments included and a maximum of five functions per file. 
+
+-------------------------------------------------------------------
 
 Usefull info:
----
+------------
 [Linked Lists](https://www.youtube.com/watch?v=R9PTBwOzceo&list=PLBlnK6fEyqRj9lld8sWIUNwlKfdUoPd1Y&index=31)
